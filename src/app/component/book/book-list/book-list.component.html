@@ -1,0 +1,71 @@
+<app-page icon="library_books"
+          title="Books">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <mat-card>
+    <div fxLayout=row>
+      <h2 fxFlex>
+        Book Management
+      </h2>
+    </div>
+    <div class="tab-body">
+        <div class="header">
+            <div class="seach-field">
+            </div>
+            <div class="actions">
+              <button fxFlex=initial
+                      mat-raised-button
+                      class=addNew
+                      routerLink="/bookdetail">
+                <mat-icon>add</mat-icon>
+                <span>Add Book</span>
+              </button>
+            </div>
+          </div>
+
+      <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+          <mat-cell class="pointer-on-hover" *matCellDef="let book"> {{book.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="numberOfPages">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> NumberOfPages </mat-header-cell>
+          <mat-cell class="pointer-on-hover" *matCellDef="let book" > {{book.numberOfPages}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="authors">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Authors </mat-header-cell>
+            <mat-cell class="pointer-on-hover" *matCellDef="let book" > {{book.authors}} </mat-cell>
+          </ng-container>
+
+        <ng-container matColumnDef="dateOfPublication">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> DateOfPublication </mat-header-cell>
+          <mat-cell class="pointer-on-hover" *matCellDef="let book" > {{book.dateOfPublication}} </mat-cell>
+        </ng-container>
+       
+        <ng-container matColumnDef="actionsColumn">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell  *matCellDef="let book" class="mat-action-cell">
+            <button mat-icon-button routerLink="/bookdetail/{{book.id}}">
+              <mat-icon aria-label="edit leadflow">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="delete(book)">
+              <mat-icon aria-label="edit leadflow">delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator
+                     [pageSize]="5"
+                     [pageSizeOptions]="[5,10,20]"
+                     [showFirstLastButtons]="true">
+      </mat-paginator>
+
+    </div>
+  </mat-card>
+</app-page>

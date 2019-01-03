@@ -1,0 +1,56 @@
+<div fxFlex
+     fxLayout=row>
+  <nav 
+       fxFlex="initial">
+    <div class=logo>
+      <span>BL</span>
+      <!--<img src="/assets/images/logo.png" />-->
+    </div>
+    <div>
+      <button *ngFor="let item of menuItems"
+              mat-button
+              class=menuButton
+              [routerLink]="item.routerLink"
+              routerLinkActive="active">
+        <mat-icon>{{item.icon}}</mat-icon>
+        <div>{{item.title}}</div>
+      </button>
+    </div>
+  </nav>
+  <div fxFlex
+       fxLayout=column>
+    <header fxFlex="66px"
+            fxLayout=row>
+      <div fxFlex></div>
+      <button 
+              [matMenuTriggerFor]="profileMenu"
+              mat-button
+              fxFlex=initial
+              class=profile>
+        <span>{{username}}</span>
+        <mat-icon>person</mat-icon>
+      </button>
+    </header>
+    <main fxFlex>
+      <router-outlet>
+      </router-outlet>
+    </main>
+  </div>
+</div>
+
+<mat-menu #profileMenu="matMenu"
+          xPosition="before">
+  <button mat-menu-item routerLink="/profile">
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
+  </button>
+
+  <!--<button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>-->
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Sign out</span>
+  </button>
+</mat-menu>

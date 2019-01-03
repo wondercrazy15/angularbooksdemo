@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+main {
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  mat-icon
+
+{
+  margin-right: 20px;
+  font-size: 1.6rem;
+}
+
+.title {
+  @include headline-1;
+}
+}

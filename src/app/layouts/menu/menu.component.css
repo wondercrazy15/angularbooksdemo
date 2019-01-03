@@ -1,0 +1,94 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+nav {
+  background: black;
+  width: 170px;
+  overflow: auto;
+}
+
+  nav div.logo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+    nav div.logo span {
+      max-width: 140px;
+      color: white;
+      font-size: 65px;
+    }
+
+  nav button.menuButton {
+    color: white;
+    font-weight: 200;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    border-left: 5px solid transparent;
+    border-radius: 0;
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+
+    nav button.menuButton:hover {
+      opacity: 1;
+    }
+
+    nav button.menuButton.active {
+      border-color: #8b1b30;
+      opacity: 1;
+    }
+
+header {
+  background: #8c1b30;
+  color: white;
+}
+
+.profile span {
+  font-size: 25px;
+  color:black;
+}
+
+header button.profile {
+  padding: 15px;
+  min-width: 180px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 300;
+  border-radius: 0;
+
+}
+
+    header button.profile /deep/ .mat-button-focus-overlay, header button.profile /deep/ .mat-button-ripple {
+      border-radius: 0;
+    }
+
+    header button.profile mat-icon {
+      background: #d8d8d8;
+      border-radius: 100%;
+      padding: 4px;
+      margin-left: 10px;
+    }
+
+main {
+  background: #f8f8fa;
+  overflow: auto;
+  display: flex;
+}
+
+button[mat-menu-item] {
+  min-width: 200px;
+}
+
+::ng-deep .profile[_ngcontent-c1] span[_ngcontent-c1] {
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color:white !important;
+}
+
+/*::ng-deep header span {
+  color: white;
+}*/
